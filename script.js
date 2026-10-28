@@ -57,6 +57,11 @@ const formProduto = document.getElementById("produto-form");
 const btnLimparTudo = document.getElementById("limpar-tabela");
 const totalEstoqueEl = document.getElementById("total-estoque");
 
+//NOVIDADE V4: CAPTURA DO NOVO ELEMENTO IMPUT DE BUSCA
+
+const campoBusca = document.getElementById("campo-busca");
+
+
 //
 // FASE 4: Escuta de Eventos
 //
@@ -96,6 +101,25 @@ btnLimparTudo.addEventListener("click", function () {
         atualizarInterface();
     }
 });
+
+//NOVIDADE V4: FUNÇÃO INTELIGENTE DE FILTRAGEM
+//A FUNÇÃO ANALISA O QUE FOI DIGITADO
+//PRODUTOS QUE CORRESPONDE AO FILTRO
+ function obterProdutosFiltrados(){
+
+    // Sanitizar o termo de busca e converter para minusculas
+    const termo = campoBusca.value.trim().toLowercase();
+
+    // Se a busca estiver vazia, retorna a lista completa
+    if(!termo){
+
+        return listaDeProdutos
+    }
+
+    // Usa metedo de de alta performe .filter()
+    return listaDeProdutos.filter(produto => produto.nome.toLowercase().includes(termo))
+
+ }
 
 //
 // FASE 5: Funções de Atualização e Renderização da Interface

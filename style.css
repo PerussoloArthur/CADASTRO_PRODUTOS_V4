@@ -211,3 +211,30 @@
       white-space: nowrap;
     }
   }
+
+  .busca-container{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: #6366f1;
+    border: 1px solid #98addd;
+    border-radius: 6x;
+ 
+  }
+
+  .busca-container input{
+
+    padding: 9px;
+    border: 1px solid #db2777;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .busca-container input-focus{
+
+    outline: none;
+    border-color: #0f172a;
+  }
